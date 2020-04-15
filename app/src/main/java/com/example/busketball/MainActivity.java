@@ -3,6 +3,7 @@ package com.example.busketball;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,11 +12,13 @@ public class MainActivity extends AppCompatActivity {
 
     // Tracks the score for Team B
     int scoreTeamB = 0;
+    TextView mTextField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mTextField = findViewById(R.id.tv1);
     }
     /**
      * Increase the score for Team A by 2 points.
@@ -84,5 +87,19 @@ public class MainActivity extends AppCompatActivity {
     public void displayForTeamB(int score) {
         TextView scoreView = (TextView) findViewById(R.id.team_b_score);
         scoreView.setText(String.valueOf(score));
+    }
+
+    public void startCountdown(View view) {
+        new CountDownTimer(30000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                mTextField.setText("done!");
+            }
+        }.start();
+
     }
 }

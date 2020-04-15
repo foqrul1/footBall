@@ -11,7 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="countdown"
+            android:textSize="60sp"
+            android:textColor="#EFF3F2"
+            android:id="@+id/tv1"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="count start"
+            android:textSize="25sp"
+            android:onClick="startCountdown"
+            android:background="#FFEB3B"
+            android:layout_marginBottom="25dp"
+            tools:ignore="OnClick" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
